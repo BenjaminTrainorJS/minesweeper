@@ -22,6 +22,12 @@ var board = {
       isMine: false,
       hidden: true
     },
+    {
+      row: 0,
+      col: 3,
+      isMine: false,
+      hidden: true
+    },
     // row 2
     {
       row: 1,
@@ -41,6 +47,12 @@ var board = {
       isMine: false,
       hidden: true
     },
+    {
+      row: 1,
+      col: 3,
+      isMine: false,
+      hidden: true
+    },
     // row 3
     {
       row: 2,
@@ -57,6 +69,37 @@ var board = {
     {
       row: 2,
       col: 2,
+      isMine: false,
+      hidden: true
+    },
+    {
+      row: 2,
+      col: 3,
+      isMine: false,
+      hidden: true
+    },
+    // row 4
+    {
+      row: 3,
+      col: 0,
+      isMine: false,
+      hidden: true
+    },
+    {
+      row: 3,
+      col: 1,
+      isMine: false,
+      hidden: true
+    },
+    {
+      row: 3,
+      col: 2,
+      isMine: false,
+      hidden: true
+    },
+    {
+      row: 3,
+      col: 3,
       isMine: false,
       hidden: true
     }
