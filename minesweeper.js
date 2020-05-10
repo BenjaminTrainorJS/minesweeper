@@ -8,100 +8,132 @@ var board = {
       row: 0,
       col: 0,
       isMine: true,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 0,
       col: 1,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 0,
       col: 2,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 0,
       col: 3,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     // row 2
     {
       row: 1,
       col: 0,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 1,
       col: 1,
-      isMine: false,
-      hidden: true
+      isMine: true,
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 1,
       col: 2,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 1,
       col: 3,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     // row 3
     {
       row: 2,
       col: 0,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 2,
       col: 1,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 2,
       col: 2,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 2,
       col: 3,
-      isMine: false,
-      hidden: true
+      isMine: true,
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     // row 4
     {
       row: 3,
       col: 0,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 3,
       col: 1,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 3,
       col: 2,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     },
     {
       row: 3,
       col: 3,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: 0
     }
   ] 
 }
@@ -112,6 +144,9 @@ function startGame () {
     board.cells[i].surroundingMines = countSurroundingMines (cellPlaceHldr);
   }
 
+  document.addEventListener("click", checkForWin);
+  document.addEventListener("contextmenu", checkForWin);
+
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
 }
@@ -121,6 +156,21 @@ function startGame () {
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked?
 function checkForWin () {
+  let hasWon = false;
+  for (let i = 0; i < board['cells'].length; i++){
+    if (board.cells[i].isMine === true && 
+      board.cells[i].isMarked === true) {
+      hasWon = true;
+    } else if (board.cells[i].isMine === true && 
+      board.cells[i].isMarked === false) {
+      hasWon = false;
+    } else if (board.cells[i].hidden === true) {
+      hasWon = false;
+    }
+  }
+  if (hasWon === true) {
+    lib.displayMessage('You win!');
+  }
 
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
