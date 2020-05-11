@@ -65,4 +65,5 @@ div.marked, div.marked:hover {
   border-radius: 10%; 
   border: none;
   font-size: 1.2em;
+  background-color: lightgrey;
 }
