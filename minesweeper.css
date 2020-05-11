@@ -67,3 +67,7 @@ div.marked, div.marked:hover {
   font-size: 1.2em;
   background-color: lightgrey;
 }
+
+#reset:hover {
+  background-color: grey;
+}
